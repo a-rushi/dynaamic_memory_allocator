@@ -1,2 +1,10 @@
-# dynaamic_memory_allocator
-Built a dynamic memory allocator using AVL trees, BSTs and Linked Lists to optimise the memory allocation process. Implemented both best fit and first fir algorithms as well as a defragmenter that coupled free blocks of memory periodically  
+Invariants of sanity:
+
+1) tail.next == null
+2) head.prev == null
+3) this.next.prev == this;
+4) this.prev.next == this;
+5) if curr = head
+   repeat until curr == null {cur = head.next} : this look should stop after a while
+6) head == (-1,-1,-1)
+7) tail == (-1,-1,-1)
