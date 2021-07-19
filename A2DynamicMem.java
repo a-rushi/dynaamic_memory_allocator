@@ -1,8 +1,5 @@
 // Class: A2DynamicMem
 // Implements Degragment in A2. No other changes should be needed for other functions.
-
-import com.sun.source.doctree.ValueTree;
-
 public class A2DynamicMem extends A1DynamicMem {
 
     public A2DynamicMem() {  super(); }
@@ -33,8 +30,8 @@ public class A2DynamicMem extends A1DynamicMem {
         if (succ == null) return;
         while (succ!=null){
             if ((curr.size + curr.key) == succ.key) {
-                BSTree cur = new BSTree(curr.address, curr.size, curr.size);
-                BSTree suc = new BSTree(succ.address, succ.size, succ.size);
+                AVLTree cur = new AVLTree(curr.address, curr.size, curr.size);
+                AVLTree suc = new AVLTree(succ.address, succ.size, succ.size);
                 fmb.Delete(cur);
                 fmb.Delete(suc);
                 fmb.Insert(curr.address, cur.size + suc.size, cur.size + suc.size);
@@ -64,7 +61,7 @@ public class A2DynamicMem extends A1DynamicMem {
         int size = block.size;
         int key = block.key;
         fmb.Delete(block);
-        if (block.key > blockSize) {
+        if (size > blockSize) {
             fmb.Insert(add + blockSize, size - blockSize, size - blockSize);
         }
         return add;
